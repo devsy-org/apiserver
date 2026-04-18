@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/devsy-org/apiserver/compare/v1.2.0...v1.2.1) (2026-04-18)
+
+
+### Bug Fixes
+
+* nondeterministic NonNamespaced annotations in register generator ([#12](https://github.com/devsy-org/apiserver/issues/12)) ([0adfff4](https://github.com/devsy-org/apiserver/commit/0adfff4957acc010844d87a4202c21e6de0408a5))
+
 ## [1.2.0](https://github.com/devsy-org/apiserver/compare/v1.1.0...v1.2.0) (2026-04-18)
 
 
