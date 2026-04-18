@@ -47,40 +47,6 @@ type APIGroup struct {
 	importAliases map[string]string
 }
 
-// resolveImportAlias returns a unique import alias for the given package path.
-// The base alias is formed from the last two path segments (e.g. "storage/v1" → "storagev1").
-// If that alias is already used by a different package, the module name (third path segment)
-// is prepended to disambiguate (e.g. "agentstoragev1").
-func (g *APIGroup) resolveImportAlias(pkgPath string) string {
-	base := path.Base(path.Dir(pkgPath)) + path.Base(pkgPath)
-
-	if existing, ok := g.importAliases[base]; ok && existing == pkgPath {
-		return base
-	}
-
-	if _, ok := g.importAliases[base]; !ok {
-		g.importAliases[base] = pkgPath
-		return base
-	}
-
-	// Collision: disambiguate using the module name (third segment of the import path).
-	parts := strings.Split(pkgPath, "/")
-	moduleName := ""
-	if len(parts) >= 3 {
-		moduleName = parts[2]
-	}
-	prefix := strings.ReplaceAll(moduleName, "-", "")
-	prefix = strings.TrimSuffix(prefix, "apis")
-	prefix = strings.TrimSuffix(prefix, "api")
-	if prefix == "" || prefix == base {
-		prefix = strings.ReplaceAll(moduleName, "-", "")
-	}
-
-	alias := prefix + base
-	g.importAliases[alias] = pkgPath
-	return alias
-}
-
 type Struct struct {
 	// Name is the name of the type
 	Name string
@@ -771,4 +737,38 @@ func (apigroup *APIGroup) DoType(t *types.Type) (*Struct, []*types.Type) {
 		}
 	}
 	return s, remaining
+}
+
+// resolveImportAlias returns a unique import alias for the given package path.
+// The base alias is formed from the last two path segments (e.g. "storage/v1" → "storagev1").
+// If that alias is already used by a different package, the module name (third path segment)
+// is prepended to disambiguate (e.g. "agentstoragev1").
+func (g *APIGroup) resolveImportAlias(pkgPath string) string {
+	base := path.Base(path.Dir(pkgPath)) + path.Base(pkgPath)
+
+	if existing, ok := g.importAliases[base]; ok && existing == pkgPath {
+		return base
+	}
+
+	if _, ok := g.importAliases[base]; !ok {
+		g.importAliases[base] = pkgPath
+		return base
+	}
+
+	// Collision: disambiguate using the module name (third segment of the import path).
+	parts := strings.Split(pkgPath, "/")
+	moduleName := ""
+	if len(parts) >= 3 {
+		moduleName = parts[2]
+	}
+	prefix := strings.ReplaceAll(moduleName, "-", "")
+	prefix = strings.TrimSuffix(prefix, "apis")
+	prefix = strings.TrimSuffix(prefix, "api")
+	if prefix == "" || prefix == base {
+		prefix = strings.ReplaceAll(moduleName, "-", "")
+	}
+
+	alias := prefix + base
+	g.importAliases[alias] = pkgPath
+	return alias
 }
