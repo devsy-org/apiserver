@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.3](https://github.com/devsy-org/apiserver/compare/v1.5.2...v1.5.3) (2026-07-01)
+
+
+### Bug Fixes
+
+* **deps:** update module k8s.io/gengo/v2 to v2.0.0-20260408192533-25e2208e0dc3 ([#21](https://github.com/devsy-org/apiserver/issues/21)) ([f0bd987](https://github.com/devsy-org/apiserver/commit/f0bd987ade042c11667ea2dc06fc68abe5af182b))
+
 ## [1.5.2](https://github.com/devsy-org/apiserver/compare/v1.5.1...v1.5.2) (2026-07-01)
 
 
