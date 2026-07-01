@@ -3,7 +3,7 @@ module github.com/devsy-org/apiserver
 go 1.25.0
 
 require (
-	github.com/spf13/cobra v1.10.0
+	github.com/spf13/cobra v1.10.2
 	github.com/spf13/pflag v1.0.10
 	go.opentelemetry.io/otel/trace v1.36.0
 	k8s.io/apimachinery v0.35.3
