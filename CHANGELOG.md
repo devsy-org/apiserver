@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.2](https://github.com/devsy-org/apiserver/compare/v1.5.1...v1.5.2) (2026-07-01)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/spf13/cobra to v1.10.2 ([#19](https://github.com/devsy-org/apiserver/issues/19)) ([9c76445](https://github.com/devsy-org/apiserver/commit/9c764452f3ce36660a2c4c8f21a7642485e4a1f5))
+
 ## [1.5.1](https://github.com/devsy-org/apiserver/compare/v1.5.0...v1.5.1) (2026-07-01)
 
 
