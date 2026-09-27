@@ -74,9 +74,9 @@ func (DefaultStorageStrategy) Build(
 
 func (DefaultStorageStrategy) NamespaceScoped() bool { return true }
 
-func (DefaultStorageStrategy) AllowCreateOnUpdate() bool { return true }
+func (DefaultStorageStrategy) AllowCreateOnUpdate(context.Context) bool { return true }
 
-func (DefaultStorageStrategy) AllowUnconditionalUpdate() bool { return true }
+func (DefaultStorageStrategy) AllowUnconditionalUpdate(context.Context) bool { return true }
 
 func (DefaultStorageStrategy) Canonicalize(obj runtime.Object) {}
 
