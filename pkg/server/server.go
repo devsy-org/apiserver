@@ -34,6 +34,7 @@ import (
 	"k8s.io/apiserver/pkg/authorization/authorizer"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	genericoptions "k8s.io/apiserver/pkg/server/options"
+	"k8s.io/apiserver/pkg/server/signals"
 	"k8s.io/apiserver/pkg/util/feature"
 	"k8s.io/klog/v2"
 	openapi "k8s.io/kube-openapi/pkg/common"
@@ -55,7 +56,7 @@ type StartOptions struct {
 
 func StartAPIServer(opts *StartOptions) error {
 	if opts.StopChan == nil {
-		opts.StopChan = genericapiserver.SetupSignalHandler()
+		opts.StopChan = signals.SetupSignalHandler()
 	}
 
 	cmd, _ := newAPIServerCommand(opts, opts.StopChan)
