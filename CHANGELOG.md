@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.7](https://github.com/devsy-org/apiserver/compare/v1.5.6...v1.5.7) (2026-10-22)
+
+
+### Bug Fixes
+
+* **deps:** update module go.opentelemetry.io/otel/trace to v1.47.0 ([#33](https://github.com/devsy-org/apiserver/issues/33)) ([5dcbaaf](https://github.com/devsy-org/apiserver/commit/5dcbaaf2a79818ae8ae84564e5c12c5a46482357))
+
 ## [1.5.6](https://github.com/devsy-org/apiserver/compare/v1.5.5...v1.5.6) (2026-10-22)
 
 
