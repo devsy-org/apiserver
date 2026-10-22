@@ -8,7 +8,7 @@ require (
 	go.opentelemetry.io/otel/trace v1.47.0
 	k8s.io/apimachinery v0.38.0-alpha.2
 	k8s.io/apiserver v0.38.0-alpha.2
-	k8s.io/client-go v0.38.0-alpha.2
+	k8s.io/client-go v11.0.0+incompatible
 	k8s.io/component-base v0.38.0-alpha.2
 	k8s.io/gengo/v2 v2.0.0-20260408192533-25e2208e0dc3
 	k8s.io/klog/v2 v2.140.0
